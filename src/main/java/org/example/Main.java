@@ -25,11 +25,9 @@ public class Main
         return intArray;
     }
 
-    public static String convertNumberToNumerals(int unit, char valueOf10, char valueOf50, char valueOf100)
+    public static String convertNumberToNumerals(int unit, String lowestValue, String midValue, String highestValue)
     {
-        String lowestValue = Character.toString(valueOf10);
-        String midValue = Character.toString(valueOf50);
-        String highestValue = Character.toString(valueOf100);
+
         String outputString ="";
         switch (unit)
         {
@@ -65,36 +63,19 @@ public class Main
     }
     public static String romanConstructorV2(int[] intArray )
     {
-        char I = 'I';
-        char V = 'V';
-        char X = 'X';
-        char L = 'L';
-        char C = 'C';
-        char D = 'D';
-        char M = 'M';
+        String I = "I";
+        String V = "V";
+        String X = "X";
+        String L = "L";
+        String C = "C";
+        String D = "D";
+        String M = "M";
         String output = "";
-        int counter = 1;
 
-        for(int i = 0; i < intArray.length; i++)
-        {
-            if(counter == 1)
-            {
-                output += convertNumberToNumerals(intArray[i],M,M,M);
-            }
-            if(counter == 2)
-            {
-                output += convertNumberToNumerals(intArray[i],C,D,M);
-            }
-            if(counter == 3)
-            {
-                output += convertNumberToNumerals(intArray[i],X,L,C);
-            }
-            if(counter == 4)
-            {
-                output += convertNumberToNumerals(intArray[i],I,V,X);
-            }
-            counter++;
-        }
+                output += convertNumberToNumerals(intArray[0],M,M,M);
+                output += convertNumberToNumerals(intArray[1],C,D,M);
+                output += convertNumberToNumerals(intArray[2],X,L,C);
+                output += convertNumberToNumerals(intArray[3],I,V,X);
         return output;
     }
 }
